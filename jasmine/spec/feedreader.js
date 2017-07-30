@@ -77,7 +77,7 @@ $(function() {
      });
 
      it('has one entry', function() {
-       var entryNumber = $('$.feed.entry').length;
+       var entryNumber = $('$.feed .entry').length;
        expect(entryNumber).toBeGreaterThan(0);
      });
   });

@@ -33,7 +33,7 @@ $(function() {
     it('all URLS are defined', function() {
       allFeeds.forEach(function(feed) {
         expect(feed.url).toBeDefined();
-        expect(feed.length).not.toBe(0);
+        expect(feed.url.length).not.toBe(0);
       });
     });
 
@@ -44,13 +44,11 @@ $(function() {
      it('name defined', function() {
        allFeeds.forEach(function(feed) {
          expect(feed.name).toBeDefined();
-         expect(feed.name.length).not.toBe(null);
+         expect(feed.name.length).not.toBe(0);
          expect(feed.name).not.toBe('');
        });
      });
   });
-
-
 
   describe('The menu', function() {
     //var menuHidden = $('body').hasClass('menu-hidden');
@@ -92,13 +90,11 @@ $(function() {
      * the use of Jasmine's beforeEach and asynchronous done() function.
      */
      beforeEach(function(done) {
-       loadFeed(0, function() {
-         done();
-       });
+       loadFeed(0, done);
      });
 
      it('has one entry', function() {
-       var entryNumber = $('.entry').length;
+       var entryNumber = $('$.feed.entry').length;
        expect(entryNumber).toBeGreaterThan(0);
      });
   });

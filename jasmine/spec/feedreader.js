@@ -112,15 +112,15 @@ $(function() {
 
      beforeEach(function(done) {
        loadFeed(0, function() {
-         done();
+         loadFeed(1, function() {
+           var secondFeed = $('.feed').html();
+           done();
+         });
        });
      });
 
      it('content is changed', function() {
-       loadFeed(1, function() {
-         expect($('.feed').html()).not.toEqual(firstFeed);
-         done();
-       });
+       expect($('.feed').html()).not.toEqual(firstFeed);
      });
   });
 }());
